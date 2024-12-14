@@ -15,8 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('phone_no')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('address')->nullable();
+            $table->string('image')->nullable();
+            $table->text('about')->nullable();
+            $table->unsignedTinyInteger('status')->default(0)->comment('0 => inactive, 1 => active, 2 => ban' );
             $table->rememberToken();
             $table->timestamps();
         });
